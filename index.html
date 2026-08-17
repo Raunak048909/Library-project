@@ -9,9 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
-
-</head>
-    <script src="script.js"></script>
+<script src="script.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -20,7 +18,7 @@
                 <i class="mdi mdi-library"></i>
                 <span>Library</span>
             </div>
-            <button>Add Books</button>
+            <button id="add-books">Add Books</button>
             <div class="books-data"><div class="no-of-books">#no of books</div>
             <div class="books-finished">#Books Finished</div>
             <div class="unread-books">#Unread Books</div>
@@ -49,7 +47,10 @@
 <label for="readed">Book Read</label>
 </div>
 
-<button type="submit">Submit</button>
+<div id="form-button">
+<button type="submit" id="submit">Submit</button>
+<button type="button" id="cancel">Cancel</button>
+</div>
     </form></div>
 </body>
 </html>
