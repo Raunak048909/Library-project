@@ -1,6 +1,7 @@
 const submitbtn=document.getElementById("add-books");
 const modalContainer = document.getElementById('modalContainer');
 const cancel=document.getElementById('cancel');
+const  cardSection=document.querySelector(".card-section");
 const MyLibrary=[]
 function Book(title,author,pages,read){
     this.id = crypto.randomUUID(); 
@@ -9,6 +10,9 @@ function Book(title,author,pages,read){
     this.pages=pages;
     this.read=read;
 }
+MyLibrary.push(new Book("The Hobbit", "J.R.R. Tolkien", 295, true));
+MyLibrary.push(new Book("Atomic Habits", "James Clear", 320, false));
+
 function addBookToLibrary() {
   const newBook=new Book(title,author,pages,read);
   MyLibrary.push(newBook);
@@ -22,3 +26,21 @@ cancel.addEventListener('click',()=>{
     modalContainer.classList.remove("show-form")
     modalContainer.classList.add("hidden-form")
 })
+function displayBooks(){
+    cardSection.innerHTML="";
+    MyLibrary.forEach((book) => {
+        const card=document.createElement("div");
+        card.classList.add("book-card");
+        card.dataset.id=book.id
+        
+        card.innerHTML=`
+        <h3>${book.title}</h3>
+        <p>Author: ${book.author}</p>
+        <p>Pages: ${book.pages}</p>
+        ${book.read?"read":"unread"}
+        `;
+        cardSection.appendChild(card);
+    });
+
+}
+displayBooks();
