@@ -1,0 +1,45 @@
+
+.container{
+    display: grid;
+    grid-template-columns: 1.3fr 3fr;
+}
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
+    background-color: #1E293B;
+    box-sizing: border-box;
+    border: 1px solid #E5E7EB;
+    
+}
+.heading{
+    font-size: xx-large;
+    color: white;
+    padding: 5px;
+    font-family: 'Italiana', serif;
+    margin: 50px;
+}
+.heading i{
+    color: goldenrod;
+}
+.sidebar button{
+   padding: 15px;
+   background-color: goldenrod;
+   border: none;
+   border-radius: 5px;
+   width: 100%;
+   cursor: pointer;
+   font-size: larger;
+   color: white;
+}
+.books-data{
+    display: flex;
+  flex-direction: column;
+  gap: 12px; 
+  padding: 46px;
+  border-radius: 8px;
+  color: white;
+  font-size: large;
+}
+
