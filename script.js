@@ -41,7 +41,7 @@ function displayBooks(){
         <div class="card-content"><h3>${book.title}</h3>
         <p>Author: ${book.author}</p>
         <p>Pages: ${book.pages}</p>
-        ${book.read?"read":"unread"}
+        ${book.read?"readed":"unreaded"}
         <button class="delete">Delete</button>
         </div>
         `;
