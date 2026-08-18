@@ -41,8 +41,8 @@ function displayBooks(){
         <div class="card-content"><h3>${book.title}</h3>
         <p>Author: ${book.author}</p>
         <p>Pages: ${book.pages}</p>
-        <button class="toggle">${book.read?"Mark Read":"Mark Unread"}</button>
-        <button class="delete">Delete</button>
+        <div class="btn-section"><button class="toggle">${book.read?"Mark Read":"Mark Unread"}</button>
+        <button class="delete">Delete</button></div>
         </div>
         `;
         const togglebtn=card.querySelector(".toggle");

@@ -109,6 +109,10 @@ min-height: 200px;
     font-size: 1.1rem;
     color: whitesmoke;
 }
+.btn-section{
+    display: flex;
+    justify-content: space-between;
+}
 
 .card-content p {
     margin: 0;
