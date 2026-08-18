@@ -2,6 +2,7 @@ const submitbtn=document.getElementById("add-books");
 const modalContainer = document.getElementById('modalContainer');
 const cancel=document.getElementById('cancel');
 const  cardSection=document.querySelector(".card-section");
+const form=document.getElementById("add-bookform");
 const MyLibrary=[]
 function Book(title,author,pages,read){
     this.id = crypto.randomUUID(); 
@@ -13,9 +14,10 @@ function Book(title,author,pages,read){
 MyLibrary.push(new Book("The Hobbit", "J.R.R. Tolkien", 295, true));
 MyLibrary.push(new Book("Atomic Habits", "James Clear", 320, false));
 
-function addBookToLibrary() {
+function addBookToLibrary(title,author,pages,read) {
   const newBook=new Book(title,author,pages,read);
   MyLibrary.push(newBook);
+  displayBooks();
   return newBook;
 }
 submitbtn.addEventListener('click',()=>{
@@ -43,4 +45,14 @@ function displayBooks(){
     });
 
 }
+form.addEventListener("submit",(event)=>{
+    event.preventDefault();
+    const formdata=new FormData(form);
+    const title=formdata.get("title");
+    const author=formdata.get("author");
+    const pages=Number(formdata.get("pages"));
+    const read=formdata.has("yes");
+    addBookToLibrary(title,author,pages,read)
+    form.reset();
+})
 displayBooks();
