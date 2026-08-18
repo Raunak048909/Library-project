@@ -114,6 +114,11 @@ min-height: 200px;
     margin: 0;
     font-size: 0.9rem;
 }
+.card-content button {
+    margin: 0;
+    font-size: 0.7rem;
+    width: fit-content;
+}
 .card-banner {
     height: 140px; 
     display: flex;
