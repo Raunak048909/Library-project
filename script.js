@@ -36,10 +36,11 @@ function displayBooks(){
         card.dataset.id=book.id
         
         card.innerHTML=`
-        <h3>${book.title}</h3>
+        <div class= "card-banner ${book.read?"banner-read":"banner-unread"}"></div>
+        <div class="card-content"><h3>${book.title}</h3>
         <p>Author: ${book.author}</p>
         <p>Pages: ${book.pages}</p>
-        ${book.read?"read":"unread"}
+        ${book.read?"read":"unread"}</div>
         `;
         cardSection.appendChild(card);
     });
