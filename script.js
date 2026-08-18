@@ -41,10 +41,12 @@ function displayBooks(){
         <div class="card-content"><h3>${book.title}</h3>
         <p>Author: ${book.author}</p>
         <p>Pages: ${book.pages}</p>
-        ${book.read?"readed":"unreaded"}
+        <button class="toggle">${book.read?"Mark Read":"Mark Unread"}</button>
         <button class="delete">Delete</button>
         </div>
         `;
+        const togglebtn=card.querySelector(".toggle");
+        togglebtn.addEventListener('click',()=>changeReadStatus(book.id))
         const del=card.querySelector(".delete");
         del.addEventListener('click',()=>deleteBook(book.id))
         cardSection.appendChild(card);
@@ -70,5 +72,12 @@ function deleteBook(id){
         MyLibrary.splice(bookIndex,1);
     }
     displayBooks();
+}
+function changeReadStatus(id){
+    const targetBook=MyLibrary.find((book)=> book.id===id);
+    if(targetBook){
+        targetBook.read=!targetBook.read;
+        displayBooks();
+    }
 }
 displayBooks();
