@@ -3,9 +3,6 @@ const modalContainer = document.getElementById('modalContainer');
 const cancel=document.getElementById('cancel');
 const  cardSection=document.querySelector(".card-section");
 const form=document.getElementById("add-bookform");
-const total=2;
-const readTotal=1;
-const unreadTotal=1;
 const noOfBooks=document.querySelector(".no-of-books");
 const booksFinished=document.querySelector(".books-finished");
 const unreadBooks=document.querySelector(".unread-books");
@@ -19,6 +16,10 @@ function Book(title,author,pages,read){
     this.author=author;
     this.pages=pages;
     this.read=read;
+}
+
+Book.prototype.toggleRead=function(){
+    this.read=!this.read;
 }
 
 function updateStats(){
@@ -96,7 +97,7 @@ function deleteBook(id){
 function changeReadStatus(id){
     const targetBook=MyLibrary.find((book)=> book.id===id);
     if(targetBook){
-        targetBook.read=!targetBook.read;
+        targetBook.toggleRead();
         displayBooks();
     }
 }
