@@ -88,7 +88,7 @@ max-width: 450px;
 min-height: 200px;
     min-width: 20px;
     box-sizing: border-box;
-    background-color: white;
+    background-color: #1E293B;
     border-radius: 10px;
     
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
@@ -101,18 +101,18 @@ min-height: 200px;
     display: flex;
     flex-direction: column;
     gap: 8px;
+    color: #64748b;
 }
 
 .card-content h3 {
     margin: 0;
     font-size: 1.1rem;
-    color: #1e293b;
+    color: whitesmoke;
 }
 
 .card-content p {
     margin: 0;
     font-size: 0.9rem;
-    color: #64748b;
 }
 .card-banner {
     height: 140px; 

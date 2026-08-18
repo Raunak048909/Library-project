@@ -23,6 +23,7 @@ function addBookToLibrary(title,author,pages,read) {
 submitbtn.addEventListener('click',()=>{
     modalContainer.classList.remove("hidden-form")
     modalContainer.classList.add("show-form")
+
 })
 cancel.addEventListener('click',()=>{
     modalContainer.classList.remove("show-form")
@@ -40,8 +41,12 @@ function displayBooks(){
         <div class="card-content"><h3>${book.title}</h3>
         <p>Author: ${book.author}</p>
         <p>Pages: ${book.pages}</p>
-        ${book.read?"read":"unread"}</div>
+        ${book.read?"read":"unread"}
+        <button class="delete">Delete</button>
+        </div>
         `;
+        const del=card.querySelector(".delete");
+        del.addEventListener('click',()=>deleteBook(book.id))
         cardSection.appendChild(card);
     });
 
@@ -55,5 +60,15 @@ form.addEventListener("submit",(event)=>{
     const read=formdata.has("yes");
     addBookToLibrary(title,author,pages,read)
     form.reset();
+    modalContainer.classList.remove("show-form");
+  modalContainer.classList.add("hidden-form");
+
 })
+function deleteBook(id){
+    const bookIndex=MyLibrary.findIndex((book)=> book.id===id);
+    if(bookIndex>-1){
+        MyLibrary.splice(bookIndex,1);
+    }
+    displayBooks();
+}
 displayBooks();
