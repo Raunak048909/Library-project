@@ -3,6 +3,12 @@ const modalContainer = document.getElementById('modalContainer');
 const cancel=document.getElementById('cancel');
 const  cardSection=document.querySelector(".card-section");
 const form=document.getElementById("add-bookform");
+const total=2;
+const readTotal=1;
+const unreadTotal=1;
+const noOfBooks=document.querySelector(".no-of-books");
+const booksFinished=document.querySelector(".books-finished");
+const unreadBooks=document.querySelector(".unread-books");
 const MyLibrary=[]
 function Book(title,author,pages,read){
     this.id = crypto.randomUUID(); 
@@ -11,6 +17,16 @@ function Book(title,author,pages,read){
     this.pages=pages;
     this.read=read;
 }
+
+function updateStats(){
+    const total=MyLibrary.length;
+const readTotal=MyLibrary.filter(books=>books.read).length;
+const unreadTotal=total-readTotal;
+    noOfBooks.innerHTML=`#No of books: ${total}`;
+booksFinished.innerHTML=`#Books Finished: ${readTotal}`;
+unreadBooks.innerHTML=`#Unread Books: ${unreadTotal}`;
+}
+
 MyLibrary.push(new Book("The Hobbit", "J.R.R. Tolkien", 295, true));
 MyLibrary.push(new Book("Atomic Habits", "James Clear", 320, false));
 
@@ -41,7 +57,7 @@ function displayBooks(){
         <div class="card-content"><h3>${book.title}</h3>
         <p>Author: ${book.author}</p>
         <p>Pages: ${book.pages}</p>
-        <div class="btn-section"><button class="toggle">${book.read?"Mark Read":"Mark Unread"}</button>
+        <div class="btn-section"><button class="toggle">${book.read?"Mark Unread":"Mark Readead"}</button>
         <button class="delete">Delete</button></div>
         </div>
         `;
@@ -49,6 +65,7 @@ function displayBooks(){
         togglebtn.addEventListener('click',()=>changeReadStatus(book.id))
         const del=card.querySelector(".delete");
         del.addEventListener('click',()=>deleteBook(book.id))
+        updateStats();
         cardSection.appendChild(card);
     });
 
