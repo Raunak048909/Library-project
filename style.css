@@ -29,13 +29,15 @@ body{
 }
 .sidebar button{
    padding: 15px;
-   background-color: goldenrod;
+   background-color:  #1E293B;
    border: none;
-   border-radius: 5px;
    width: 100%;
    cursor: pointer;
    font-size: larger;
    color: white;
+}
+.sidebar button:hover {
+  background-color: goldenrod; 
 }
 .books-data{
     display: flex;
